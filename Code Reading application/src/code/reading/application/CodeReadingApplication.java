@@ -5,6 +5,8 @@
  */
 package code.reading.application;
 
+import java.io.IOException;
+
 /**
  *
  * @author Sam
@@ -14,8 +16,9 @@ public class CodeReadingApplication {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
+        ReadFile r = new ReadFile("sam");
     }
     
 }
