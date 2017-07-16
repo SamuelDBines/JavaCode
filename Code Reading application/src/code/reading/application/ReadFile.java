@@ -18,33 +18,46 @@ import java.io.IOException;
  * @author Sam
  */
 public class ReadFile {
-    private FileWriter writer;
+
     private FileReader reader;
     private BufferedReader instream;
-    public ReadFile(String file) throws FileNotFoundException, IOException {
-        File files = new File("test.txt");
-        files.createNewFile();
-        writer = new FileWriter(files);
-        writer.write("This is a writer test \n"
-                + "hi");
-        writer.flush();
-        writer.close();        
-        reader = new FileReader(files);
-        
-        
-      //  char[] a = new char[50];
-        //reader.read(a);   
-        instream = new BufferedReader(reader);
-        String s;
-        s = instream.readLine();
-        System.out.println(s);
-        while((s = instream.readLine() ) != null ) {
-           
+
+    public ReadFile() {
+
+    }
+
+    public String readFile(String fileName) {
+        String read = "";
+        String check = "";
+        try {
+            reader = new FileReader(fileName);
+            instream = new BufferedReader(reader);
+            while ( read != null) {
+             //   System.out.println(read);
+                read = instream.readLine();
+                if(read == null) 
+                    break;                
+                check = check + read + "\n";
+            }
+            instream.close();
+
+        } catch (Exception e) {
+            read = "";
         }
-        instream.close();
-      //  for(char c : a) 
-      //      System.out.print(c);
-      //  reader.close();
-        
+        return check;
+    }
+
+    public String readByLine(String fileName) {
+        String read;
+        try {
+            reader = new FileReader(fileName);
+            instream = new BufferedReader(reader);
+            read = instream.readLine();
+            instream.close();
+        } catch (Exception e) {
+            read = "";
+
+        }
+        return read;
     }
 }

@@ -18,7 +18,10 @@ public class CodeReadingApplication {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        ReadFile r = new ReadFile("sam");
+        ReadFile r = new ReadFile();
+        String s = r.readFile("test.txt");
+        System.out.println(s);
+        FrameDesign f = new FrameDesign();
     }
     
 }
