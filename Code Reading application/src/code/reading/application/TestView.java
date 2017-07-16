@@ -9,9 +9,9 @@ import javax.swing.JTextField;
  * @author Sam
  */
 public class TestView extends View {
-    public TestView(String title)  {
+    public TestView()  {
+        add(new JTextField());
         
-      add(new JTextField(title, 5));
                  
     }
 }
